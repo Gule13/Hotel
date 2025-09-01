@@ -1,0 +1,3208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Visina stranice zauzima ceo ekran */
+    margin: 0; /* Uklanja podrazumevane margine */
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden; /* Sprečava horizontalno pomeranje */
+    overflow-y: auto; /* Omogućava vertikalno skrolovanje */
+}
+
+h1, h2, h3 {
+    color: #2C3E50;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    padding: 10px 20px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    overflow: visible !important; /* Sprečava horizontalni scroll */
+    /* overflow-y: hidden; */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+h2 {
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap; /* Omogućava prelamanje elemenata u novi red */
+    justify-content: flex-end; /* Poravnava navigaciju na desnu stranu */
+    align-items: center;
+    gap: 10px; /* Razmak između stavki */
+    /* overflow-y: visible; Sprečava horizontalno pomeranje */
+  overflow: visible !important;
+  position: relative;
+  z-index: 10;
+}
+
+.nav ul {
+    display: flex;
+    flex-wrap: wrap; /* Omogućava prelamanje stavki u novi red */
+    gap: 10px; /* Razmak između stavki */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav ul li {
+    flex: 0 1 auto; /* Stavke zauzimaju minimalnu širinu potrebnu za sadržaj */
+}
+
+/* Stilizacija dugmadi/linkova u nav */
+.nav ul li a {
+    color: #fff;
+    background: transparent;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 22px;
+    border-radius: 24px;
+    transition: 
+        background 0.25s,
+        color 0.25s,
+        box-shadow 0.25s;
+    box-shadow: none;
+    letter-spacing: 1px;
+    margin: 0 4px;
+    display: inline-block;
+}
+
+.nav ul li a:hover,
+.nav ul li a:focus {
+    background: #f39c12;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(243, 156, 18, 0.18);
+    text-decoration: none;
+    outline: none;
+}
+
+.hero {
+    background: url('/slika1.jpeg') center 10%/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    filter: contrast(1.2) brightness(0.9);
+    padding-top: 20px;
+
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 4rem; /* Povećava veličinu naslova */
+    font-weight: bold; /* Podebljan tekst */
+    color: white; /* Tamnoplava boja */
+    margin-bottom: 1px; /* Razmak ispod naslova */
+    text-transform: uppercase; /* Velika slova */
+    letter-spacing: 2px; /* Razmak između slova */
+}
+
+.hero-content p {
+    font-size: 1.2rem; /* Povećava veličinu naslova */
+    font-weight: bold; /* Podebljan tekst */
+    color: white; /* Tamnoplava boja */
+    margin-bottom: 5px; /* Razmak ispod naslova */
+    text-transform: none; /* Velika slova */
+    letter-spacing: 2px; /* Razmak između slova */
+}
+
+.hero-content .btn {
+    padding: 15px 30px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Tranzicija za boju i skaliranje */
+    border-radius: 5px;
+}
+
+.hero-content .btn:hover {
+    background-color: #e67e22; /* Promena boje na hover */
+    transform: scale(1.05); /* Blago povećanje na hover */
+}
+
+section {
+    padding: 10px 10%;
+    text-align: center;
+    scroll-margin-top: 80px;
+    padding-top: 20px; /* Razmak iznad sekcije */
+    padding-bottom: 20px; /* Razmak ispod sekcije */
+}
+
+section h2 {
+    margin-bottom: 10px; /* Razmak ispod naslova */
+}
+
+.rooms .room-container {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.room-card:hover {
+    transform: scale(1.05);
+}
+
+.room-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.room-card .btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.rooms h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #2C3E50;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dve kolone */
+    gap: 20px; /* Razmak između kartica */
+}
+
+.amenity {
+    flex: 1 1 calc(50% - 40px);
+    max-width: calc(50% - 40px);
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.amenity:hover {
+    transform: scale(1.05);
+}
+
+.amenity i {
+    font-size: 40px;
+    color: #f39c12;
+    margin-bottom: 10px;
+}
+
+/* Stilovi za karticu restorana */
+.amenity-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Sprečava prelazak sadržaja van kartice */
+}
+
+.amenity-card h3 {
+    font-size: 1.5rem; /* Standardna veličina naslova */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.amenity-card p {
+    font-size: 1rem; /* Standardna veličina teksta */
+    line-height: 1.5;
+    color: white;
+
+}
+
+.amenity-card {
+    width: 100%; /* Kartice zauzimaju punu širinu unutar grida */
+    height: 300px; /* Jedinstvena visina za sve kartice */
+    border-radius: 10px; /* Zaobljeni uglovi */
+    overflow: hidden; /* Sprečava prelazak sadržaja van kartice */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikalno centriranje */
+    align-items: center; /* Horizontalno centriranje */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blaga senka */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodata tranzicija za hover efekat */
+}
+
+.amenity-card:hover {
+    transform: scale(1.05); /* Efekat povećanja na hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Pojačana senka na hover */
+}
+
+.amenity-card.restaurant {
+    background-image: url('/restaurant.jpg'); /* Ispravan URL slike */
+    background-size: cover;
+    background-position: center;
+}
+
+.amenity-card::before {
+    content: ''; /* Dodaje zatamnjeni sloj preko slike */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Zatamnjenje slike (30%) */
+    z-index: 1; /* Sloj ispod teksta */
+    border-radius: 15px; /* Zaobljeni uglovi */
+}
+
+.amenity-card h3 {
+    position: relative;
+    z-index: 2; /* Tekst iznad zatamnjenja */
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Senka za bolju čitljivost */
+}
+
+.amenity-card p {
+
+    font-size: 1rem;
+    line-height: 1.5;
+    color: white !important;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Senka za bolju čitljivost */
+}
+
+.contact {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact-title h2 {
+    font-size: 2rem; /* Ista veličina kao "Naši sadržaji" */
+    color: #2C3E50;
+    margin-bottom: 10px;
+
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+.contact-title p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dve jednake kolone */
+    gap: 20px; /* Razmak između kolona */
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch; /* Sekcije će se rastegnuti na istu visinu */
+}
+
+.contact-info,
+.contact-form {
+    background-color: #fff;
+    /* padding: 20px; */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Raspoređuje sadržaj unutar sekcija */
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.contact-form {
+    text-align: left;
+}
+
+.contact-info .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-info .contact-item i {
+    font-size: 1.5rem;
+    color: #2C3E50;
+    margin-right: 10px;
+}
+
+.contact-info .contact-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.contact-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+    font-size: 1.5rem;
+    color: #2C3E50;
+    margin-bottom: 20px;
+}
+
+.contact-form form input,
+.contact-form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2C3E50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form form button:hover {
+    background-color: #1e3c72;
+}
+
+.footer {
+  width: 100%;
+  background-color: #2C3E50; /* ili tvoja boja */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+}
+
+.standard-room {
+    position: relative; /* Omogućava pozicioniranje overlay-a */
+    background-image: url('/Soba1.webp'); /* Direktan URL slike */
+    background-size: cover; /* Slika pokriva celu karticu */
+    background-position: center; /* Centriranje slike */
+    border-radius: 10px; /* Zaobljeni uglovi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blaga senka */
+    padding: 20px;
+    color: white; /* Tekst na kartici će biti beo */
+    text-align: center;
+    height: 200px; /* Visina kartice */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikalno centriranje */
+    align-items: center; /* Horizontalno centriran
+    overflow: hidden; /* Sprečava prelazak overlay-a van kartice */
+}
+
+.standard-room::before {
+    content: ''; /* Kreira prazan sloj */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Smanjena prozirnost (30%) */
+    border-radius: 10px; /* Zaobljeni uglovi overlay-a */
+    z-index: 1; /* Overlay se nalazi ispod teksta */
+}
+
+.standard-room h3, .standard-room p {
+    position: relative; /* Tekst ostaje iznad overlay-a */
+    z-index: 2; /* Tekst se prikazuje iznad overlay-a */
+    color: #ffffff; /* Čista bela boja za bolju vidljivost */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Dodaje senku za bolji kontrast */
+}
+
+.deluxe-room {
+    position: relative; /* Omogućava pozicioniranje overlay-a */
+    background-image: url('/Soba2.jpg'); /* Direktan URL slike */
+    background-size: cover; /* Slika pokriva celu karticu */
+    background-position: center; /* Centriranje slike */
+    border-radius: 10px; /* Zaobljeni uglovi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blaga senka */
+    padding: 20px;
+    color: white; /* Tekst na kartici će biti beo */
+    text-align: center;
+    height: 200px; /* Visina kartice */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikalno centriranje */
+    align-items: center; /* Horizontalno centriranje */
+    overflow: hidden; /* Sprečava prelazak overlay-a van kartice */
+}
+
+.deluxe-room::before {
+    content: ''; /* Kreira prazan sloj */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Smanjena prozirnost (30%) */
+    border-radius: 10px; /* Zaobljeni uglovi overlay-a */
+    z-index: 1; /* Overlay se nalazi ispod teksta */
+}
+
+.deluxe-room h3, .deluxe-room p {
+    position: relative; /* Tekst ostaje iznad overlay-a */
+    z-index: 2; /* Tekst se prikazuje iznad overlay-a */
+    color: #ffffff; /* Čista bela boja za bolju vidljivost */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Dodaje senku za bolji kontrast */
+}
+
+.presidential-suite {
+    position: relative; /* Omogućava pozicioniranje overlay-a */
+    background-image: url('/Soba3.webp'); /* Direktan URL slike */
+    background-size: cover; /* Slika pokriva celu karticu */
+    background-position: center; /* Centriranje slike */
+    border-radius: 10px; /* Zaobljeni uglovi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blaga senka */
+    color: white; /* Tekst na kartici će biti beo */
+    text-align: center;
+    height: 200px; /* Visina kartice */
+    display: flex; /* Aktivira flexbox za centriranje */
+    justify-content: center; /* Vertikalno centriranje */
+    align-items: center; /* Horizontalno centriranje */
+    overflow: hidden; /* Sprečava prelazak overlay-a van kartice */
+    padding: 0; /* Uklanja padding koji može pomeriti tekst */
+}
+
+.presidential-suite::before {
+    content: ''; /* Kreira prazan sloj */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Smanjena prozirnost (30%) */
+    border-radius: 10px; /* Zaobljeni uglovi overlay-a */
+    z-index: 1; /* Overlay se nalazi ispod teksta */
+}
+
+.presidential-suite h3, .presidential-suite p {
+    position: relative; /* Tekst ostaje iznad overlay-a */
+    z-index: 2; /* Tekst se prikazuje iznad overlay-a */
+    color: #ffffff; /* Čista bela boja za bolju vidljivost */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Dodaje senku za bolji kontrast */
+    margin: 0; /* Uklanja dodatne margine */
+}
+
+.restaurant {
+    position: relative; /* Omogućava pozicioniranje overlay-a */
+    background-image: url('/restaurant.jpg'); /* Direktan URL slike */
+    background-size: cover; /* Slika pokriva celu karticu */
+    background-position: center; /* Centriranje slike */
+    border-radius: 10px; /* Zaobljeni uglovi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blaga senka */
+    padding: 20px;
+    color: white; /* Tekst na kartici će biti beo */
+    text-align: center;
+    height: 250px; /* Povećana visina kartice */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikalno centriranje */
+    align-items: center; /* Horizontalno centriranje */
+    overflow: hidden; /* Sprečava prelazak overlay-a van kartice */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodata tranzicija za hover efekat */
+}
+
+.restaurant:hover {
+    transform: scale(1.05); /* Efekat povećanja na hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Pojačana senka na hover */
+}
+
+.restaurant::before {
+    content: ''; /* Kreira prazan sloj */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Smanjena prozirnost (30%) */
+    border-radius: 10px; /* Zaobljeni uglovi overlay-a */
+    z-index: 1; /* Overlay se nalazi ispod teksta */
+}
+
+.restaurant h3, .restaurant p {
+    position: relative; /* Tekst ostaje iznad overlay-a */
+    z-index: 2; /* Tekst se prikazuje iznad overlay-a */
+    color: #ffffff; /* Čista bela boja za bolju vidljivost */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Dodaje senku za bolji kontrast */
+}
+
+.spa {
+    position: relative; /* Omogućava pozicioniranje overlay-a */
+    background-image: url('/Wellness.webp'); /* Direktan URL slike */
+    background-size: cover; /* Slika pokriva celu karticu */
+    background-position: center; /* Centriranje slike */
+    border-radius: 10px; /* Zaobljeni uglovi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blaga senka */
+    padding: 20px;
+    color: white; /* Tekst na kartici će biti beo */
+    text-align: center;
+    height: 250px; /* Povećana visina kartice */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikalno centriranje */
+    align-items: center; /* Horizontalno centriranje */
+    overflow: hidden; /* Sprečava prelazak overlay-a van kartice */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodata tranzicija za hover efekat */
+}
+
+.spa:hover {
+    transform: scale(1.05); /* Efekat povećanja na hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Pojačana senka na hover */
+}
+
+.spa::before {
+    content: ''; /* Kreira prazan sloj */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Smanjena prozirnost (30%) */
+    border-radius: 10px; /* Zaobljeni uglovi overlay-a */
+    z-index: 1; /* Overlay se nalazi ispod teksta */
+}
+
+.spa h3, .spa p {
+    position: relative; /* Tekst ostaje iznad overlay-a */
+    z-index: 2; /* Tekst se prikazuje iznad overlay-a */
+    color: #ffffff; /* Čista bela boja za bolju vidljivost */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Dodaje senku za bolji kontrast */
+}
+
+.gym {
+    position: relative; /* Omogućava pozicioniranje overlay-a */
+    background-image: url('/gym.jpg'); /* Direktan URL slike */
+    background-size: cover; /* Slika pokriva celu karticu */
+    background-position: center; /* Centriranje slike */
+    border-radius: 10px; /* Zaobljeni uglovi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blaga senka */
+    padding: 20px;
+    color: white; /* Tekst na kartici će biti beo */
+    text-align: center;
+    height: 250px; /* Povećana visina kartice */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikalno centriranje */
+    align-items: center; /* Horizontalno centriranje */
+    overflow: hidden; /* Sprečava prelazak overlay-a van kartice */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodata tranzicija za hover efekat */
+}
+
+.gym:hover {
+    transform: scale(1.05); /* Efekat povećanja na hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Pojačana senka na hover */
+}
+
+.gym::before {
+    content: ''; /* Kreira prazan sloj */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Smanjena prozirnost (30%) */
+    border-radius: 10px; /* Zaobljeni uglovi overlay-a */
+    z-index: 1; /* Overlay se nalazi ispod teksta */
+}
+
+.gym h3, .gym p {
+    position: relative; /* Tekst ostaje iznad overlay-a */
+    z-index: 2; /* Tekst se prikazuje iznad overlay-a */
+    color: #ffffff; /* Čista bela boja za bolju vidljivost */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Dodaje senku za bolji kontrast */
+}
+
+.pool {
+    position: relative; /* Omogućava pozicioniranje overlay-a */
+    background-image: url('/Pool.jpg'); /* Direktan URL slike */
+    background-size: cover; /* Slika pokriva celu karticu */
+    background-position: center; /* Centriranje slike */
+    border-radius: 10px; /* Zaobljeni uglovi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Blaga senka */
+    padding: 20px;
+    color: white; /* Tekst na kartici će biti beo */
+    text-align: center;
+    height: 250px; /* Povećana visina kartice */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikalno centriranje */
+    align-items: center; /* Horizontalno centriranje */
+    overflow: hidden; /*Sprečava prelazak overlay-a van kartice */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodata tranzicija za hover efekat */
+}
+
+.pool:hover {
+    transform: scale(1.05); /* Efekat povećanja na hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Pojačana senka na hover */
+}
+
+.pool::before {
+    content: ''; /* Kreira prazan sloj */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Smanjena prozirnost (30%) */
+    border-radius: 10px; /* Zaobljeni uglovi overlay-a */
+    z-index: 1; /* Overlay se nalazi ispod teksta */
+}
+
+.pool h3, .pool p {
+    position: relative; /* Tekst ostaje iznad overlay-a */
+    z-index: 2; /* Tekst se prikazuje iznad overlay-a */
+    color: #ffffff; /* Čista bela boja za bolju vidljivost */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Dodaje senku za bolji kontrast */
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Visina ekrana */
+    background-color: #f8f9fa;
+}
+
+.login-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-container .btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.login-container .btn:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+}
+
+.login-container p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-container a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+.amenities-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dve jednake kolone */
+    gap: 20px; /* Razmak između kolona */
+}
+
+.amenities-left {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-height: 300px; /* Minimalna visina za vizuelni balans */
+}
+
+.amenities-left {
+    flex: 1; /* Povećava levi grid da zauzima prostor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.amenities-right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dve kolone za kartice */
+    gap: 20px;
+}
+
+.restaurant-section {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 120px; /* Spušta sliku i tekst ispod headera */
+    padding-top: 0;
+}
+
+.restaurant-image {
+    flex: 3; /* Slika zauzima 60% prostora */
+    height: 100%; /* Proteže se celom visinom sekcije */
+    margin-top: 0; /* Uklanja margine oko slike */
+    padding-top: 0; /* Uklanja padding oko slike */
+}
+
+.restaurant-image img {
+    width: 100%; /* Slika se prilagođava širini */
+    height: auto; /* Slika se prilagođava visini */
+    object-fit: cover; /* Održava proporcije slike */
+    display: block; /* Uklanja eventualne praznine ispod slike */
+    margin-top: 0;
+}
+
+.restaurant-section {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 40px; /* Spušta sliku i tekst ispod headera */
+    padding-top: 0;
+}
+
+.restaurant-content {
+    flex: none;
+    width: 60%;
+    max-width: 500px;
+    padding: 10px 24px 10px 24px; /* smanji padding gore i dole */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* podiže sadržaj gore */
+    background-color: #f8f9fa;
+    text-align: left;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.restaurant-content h1 {
+    font-size: 48px;
+    color: #2C3E50;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif; /* Isti font kao paragrafi */
+}
+
+.restaurant-content p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+    font-family: 'Georgia', serif; /* Elegantni serif font za tekst */
+    margin-bottom: 20px;
+}
+
+.working-hours {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f4f4f4; /* Svetla pozadina za kontrast */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Blaga senka */
+    text-align: left;
+}
+
+.working-hours h2 {
+    font-size: 24px;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+
+.working-hours p {
+    font-size: 18px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.working-hours-text {
+    font-size: 20px; /* Veći font za radno vreme */
+    color: #333;
+    line-height: 1.8;
+    text-align: justify;
+    font-family: 'Georgia', serif; /* Isti font kao paragrafi */
+    margin-top: 20px; /* Razmak iznad radnog vremena */
+}
+
+.working-hours-text strong {
+    font-size: 22px; /* Još veći font za naslov "Radno vrijeme" */
+    color: #2C3E50; /* Tamnija boja za isticanje */
+}
+
+.amenity-card.rooms {
+    position: relative; /* Omogućava pozicioniranje pseudo-elementa */
+    background-image: url('/Soba3.webp');
+    background-size: cover; /* Slika će pokriti celu karticu */
+    background-position: center; /* Centriranje slike */
+    color: white; /* Tekst će biti beo za bolji kontrast */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); /* Blaga senka za tekst */
+    border-radius: 8px; /* Zaobljeni uglovi */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Kartica zauzima punu visinu */
+    width: 100%; /* Kartica zauzima punu širinu */
+    padding: 20px; /* Razmak unutar kartice */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Blaga senka */
+    overflow: hidden; /* Sprečava prelazak pseudo-elementa van kartice */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efekat na hover */
+}
+
+.amenity-card.rooms::before {
+    content: ''; /* Kreira prazan sloj */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Zatamnjenje slike (40%) */
+    z-index: 1; /* Sloj ispod teksta */
+    border-radius: 8px; /* Zaobljeni uglovi pseudo-elementa */
+}
+
+.amenity-card.rooms h3,
+.amenity-card.rooms p {
+    position: relative; /* Tekst ostaje iznad pseudo-elementa */
+    z-index: 2; /* Tekst se prikazuje iznad pseudo-elementa */
+    color: white; /* Tekst će biti bele boje */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Dodaje senku za bolju čitljivost */
+}
+
+.amenity-card.rooms:hover::before {
+    background: rgba(0, 0, 0, 0.4); /* Zadržava isto zatamnjenje kao u normalnom stanju */
+}
+
+.amenity-card.rooms:hover {
+    transform: scale(1.05); /* Efekat povećanja na hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Pojačana senka na hover */
+}
+
+/* Globalni stilovi za grid */
+.amenities-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dve kolone za veće ekrane */
+    gap: 20px; /* Razmak između kartica */
+}
+
+.amenity-card {
+    background-size: cover; /* Slika pokriva celu karticu */
+    background-position: center; /* Centriranje slike */
+    height: 300px; /* Visina kartice */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikalno centriranje */
+    align-items: center; /* Horizontalno centriranje */
+    text-align: center;
+    color: white; /* Tekst na kartici će biti beo */
+    overflow: hidden; /* Sprečava prelazak sadržaja van kartice */
+    position: relative; /* Omogućava pozicioniranje pseudo-elementa */
+}
+
+.amenity-card::before {
+    content: ''; /* Dodaje sloj preko slike */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Zatamnjenje slike */
+    z-index: 1; /* Sloj ispod teksta */
+}
+
+.amenity-card h3,
+.amenity-card p {
+    position: relative; /* Tekst ostaje iznad pseudo-elementa */
+    z-index: 2; /* Tekst se prikazuje iznad pseudo-elementa */
+    color: white; /* Tekst će biti bele boje */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Dodaje senku za bolju čitljivost */
+}
+
+/* Media queries za manje ekrane */
+@media (max-width: 768px) {
+    .amenities-container {
+        grid-template-columns: 1fr; /* Jedna kolona za manje ekrane */
+    }
+
+    .amenity-card {
+        padding: 15px;
+        height: 250px; /* Smanjena visina kartice za manje ekrane */
+    }
+
+    .amenity-card h3 {
+        font-size: 1.3rem; /* Smanjen font za naslove */
+    }
+
+    .amenity-card p {
+        font-size: 0.9rem; /* Smanjen font za tekst */
+    }
+
+}
+
+@media (max-width: 480px) {
+    .amenities-container {
+        grid-template-columns: 1fr; /* I dalje jedna kolona */
+    }
+
+    .amenity-card {
+        padding: 10px;
+        height: 200px; /* Još manja visina kartice za vrlo male ekrane */
+    }
+
+    .amenity-card h3 {
+        font-size: 1.2rem; /* Još manji font za naslove */
+    }
+
+    .amenity-card p {
+        font-size: 0.8rem; /* Još manji font za tekst */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem; /* Smanjen font za manje ekrane */
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .room-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .room-card {
+        width: 90%;
+    }
+
+    .nav {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .nav ul {
+        display: inline-flex;
+        gap: 10px;
+    }
+
+    .nav ul li {
+        flex: 0 0 auto;
+    }
+
+    .nav ul li a {
+        font-size: 14px;
+    }
+
+    .amenities-container {
+        grid-template-columns: 1fr; /* Jedna kolona za manje ekrane */
+    }
+
+    .amenity-card {
+        padding: 15px;
+    }
+
+    .restaurant-section {
+        flex-direction: column; /* Postavlja sliku i tekst jedan ispod drugog */
+        height: auto; /* Omogućava sekciji da se prilagodi sadržaju */
+    }
+
+    .restaurant-image {
+        flex: none; /* Uklanja proporcije */
+        width: 100%; /* Slika zauzima punu širinu */
+        height: auto; /* Visina slike se prilagođava širini */
+    }
+
+    .restaurant-content {
+        flex: none; /* Uklanja proporcije */
+        width: 100%; /* Tekst zauzima punu širinu */
+        padding: 20px; /* Dodaje razmak oko teksta */
+        text-align: center; /* Centriranje teksta */
+    }
+
+    .restaurant-content h1 {
+        font-size: 1.8rem; /* Smanjuje veličinu naslova za mobilne uređaje */
+    }
+
+    .restaurant-content p {
+        font-size: 1rem; /* Smanjuje veličinu teksta za mobilne uređaje */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem; /* Još manji font za vrlo male ekrane */
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .amenity-card {
+        padding: 10px;
+    }
+
+    .nav ul {
+        display: flex;
+        flex-direction: column; /* Navigacija u koloni */
+        gap: 10px;
+    }
+
+    .nav ul li {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .apartment-section {
+        flex-direction: column; /* Postavlja sliku i tekst jedan ispod drugog */
+        text-align: center; /* Centriranje teksta */
+    }
+
+    .apartment-image,
+    .apartment-text {
+        flex: none; /* Uklanja proporcije */
+        width: 100%; /* Zauzima punu širinu */
+    }
+
+    .apartment-text p {
+        text-align: justify; /* Poravnanje teksta sa obe strane */
+    }
+}
+
+/* Stilovi za sekciju detalja sobe */
+.room-details {
+    display: block; /* Uklanja grid ili flex raspored */
+    padding: 50px 5%; /* Dodaje razmak sa strane */
+    text-align: center; /* Centriranje teksta */
+}
+
+.room-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.room-description {
+    max-width: 100%; /* Tekst zauzima celu širinu stranice */
+    margin: 0 auto; /* Centriranje sadržaja */
+    text-align: justify; /* Poravnanje teksta sa obe strane */
+    padding: 0 5%; /* Dodaje razmak sa leve i desne strane */
+}
+
+.room-description h2 {
+    font-size: 2.5rem; /* Veći naslov */
+    color: #2C3E50;
+    margin-bottom: 20px;
+    text-align: center; /* Naslov ostaje centriran */
+}
+
+.room-description p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: justify; /* Poravnanje teksta sa obe strane */
+}
+
+.room-description ul {
+    display: flex; /* Aktivira flexbox za stavke */
+    justify-content: space-between; /* Ravnomerno raspoređuje stavke */
+    gap: 20px; /* Razmak između stavki */
+    padding: 0;
+    list-style: none; /* Uklanja oznake liste */
+}
+
+.room-description ul li {
+    flex: 1; /* Sve stavke zauzimaju jednaku širinu */
+    text-align: center; /* Centriranje teksta unutar stavki */
+    font-size: 1rem;
+    color: #333;
+    position: relative;
+    padding: 10px;
+    border: none; /* Dodaje okvir oko stavki (opciono) */
+    border-radius: 0; /* Zaobljeni uglovi (opciono) */
+    background-color: transparent; /* Svetla pozadina (opciono) */
+}
+
+.room-description ul li::before {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #f39c12;
+    font-weight: bold;
+}
+
+/* Sekcija za apartman */
+.apartment-section {
+    display: flex; /* Postavlja sliku i tekst u red */
+    align-items: flex-start; /* Poravnava sadržaj na vrh */
+    justify-content: space-between; /* Razmak između slike i teksta */
+    padding: 20px 5%; /* Smanjen padding za bolje poravnanje */
+    gap: 20px; /* Razmak između slike i teksta */
+}
+
+.apartment-image {
+    flex: 1; /* Slika zauzima polovinu prostora */
+}
+
+.apartment-image img {
+    width: 100%; /* Slika zauzima punu širinu */
+    height: auto; /* Automatski prilagođava visinu */
+    border-radius: 10px; /* Zaobljeni uglovi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Blaga senka */
+}
+
+.apartment-text {
+    flex: 1; /* Tekst zauzima polovinu prostora */
+    text-align: left; /* Poravnanje teksta na levo */
+    font-family: 'Georgia', serif; /* Isti font kao za restaurant.html */
+    font-size: 18px; /* Ista veličina fonta kao za restaurant.html */
+    line-height: 1.8; /* Razmak između redova */
+    color: #555; /* Boja teksta */
+    margin: 0; /* Uklanja dodatne margine */
+    display: flex; /* Aktivira flexbox za tekst */
+    flex-direction: column; /* Vertikalno raspoređuje naslov i paragraf */
+    justify-content: flex-start; /* Poravnava sadržaj na vrh */
+}
+
+.apartment-text h2 {
+    font-size: 36px; /* Veličina naslova */
+    color: #2C3E50;
+    margin-bottom: 5px; /* Smanjen razmak ispod naslova */
+    margin-top: 0; /* Uklanja dodatni razmak iznad naslova */
+    text-align: left; /* Poravnanje naslova na levo */
+}
+
+.apartment-text p {
+    margin-bottom: 10px; /* Smanjen razmak ispod paragrafa */
+    font-size: 1.2rem;
+    line-height: 1.6; /* Smanjen razmak između redova */
+    color: #555;
+    text-align: justify; /* Poravnanje teksta sa obe strane */
+}
+
+.btn-reserve {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #2C3E50; /* Tamnoplava boja */
+    text-decoration: none;
+    border-radius: 5px; /* Zaobljeni uglovi */
+    transition: background-color 0.3s ease;
+    text-align: center;
+    width: 150px;
+}
+
+.btn-reserve:hover {
+    background-color: #1e3c72; /* Svetlija plava boja na hover */
+}
+.btn-vise {
+    display: inline-block;
+    margin-top: 20px; /* Razmak iznad dugmeta */
+    padding: 10px 20px; /* Smanjen padding za manje dugme */
+    font-size: 1rem; /* Smanjena veličina fonta */
+    font-weight: bold;
+    color: white;
+    background-color: #f39c12; /* Zlatna boja */
+    text-decoration: none;
+    border-radius: 5px; /* Zaobljeni uglovi */
+    transition: background-color 0.3s ease;
+}
+
+.btn-vise:hover {
+    background-color: #d98310; /* Tamnija nijansa na hover */
+}
+.about {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 1px;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+    text-align: center;
+}
+
+.about-image img {
+    width: 600px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem; /* Veličina fonta kao kod "Naši sadržaji" */
+    color: #2C3E50; /* Tamnoplava boja */
+    text-align: center; /* Centriranje naslova */
+    margin-bottom: 30px; /* Razmak ispod naslova */
+    text-transform: uppercase; /* Velika slova */
+    letter-spacing: 1.5px; /* Razmak između slova */
+    font-weight: bold; /* Podebljan tekst */
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.about-title {
+    text-align: center;
+    padding: 0 0;
+
+    margin-bottom: 0px; /* Razmak između naslova i ostatka sekcije */
+
+}
+
+.about-text h2 {
+    font-size: 2.5rem; /* Veličina fonta kao kod "Naši sadržaji" */
+    color: #2C3E50; /* Tamnoplava boja */
+    text-align: center; /* Centriranje naslova */
+    margin-bottom: 30px; /* Razmak ispod naslova */
+    text-transform: uppercase; /* Velika slova */
+    letter-spacing: 1.5px; /* Razmak između slova */
+    font-weight: bold; /* Podebljan tekst */
+}
+
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f9f9f9;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2C3E50;
+}
+
+.login-container form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.login-container form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2C3E50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container form button:hover {
+    background-color: #1e3c72;
+}
+
+.login-container p {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.login-container p a {
+    color: #2C3E50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Specifično za stranicu za prijavljivanje */
+body.login-page,
+body.register-page {
+    background: url('/Slika1.jpeg') center 10%/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    filter: contrast(1.2) brightness(0.9);
+    margin: 0;
+    padding: 0;
+}
+
+body.login-page::before,
+body.register-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+.login-container,
+.register-container {
+    position: relative;
+    z-index: 2;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+header.header {
+    position: sticky; /* Postavlja header iznad pozadine */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Osigurava da header bude iznad pozadine */
+}
+
+/* Stilovi za sekciju "O nama" na većim ekranima (desktop) */
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+/* Početno stanje za tekst i slike */
+.about-image img,
+.about-text p {
+    opacity: 0; /* Elementi su nevidljivi */
+    transform: translateY(50px); /* Početno stanje: pomeranje nadole */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Tranzicija za glatko pojavljivanje */
+}
+
+/* Aktivacija tranzicije kada je element vidljiv */
+.about-image img.show,
+.about-text p.show {
+    opacity: 1; /* Elementi postaju vidljivi */
+    transform: translateY(0); /* Elementi dolaze na svoje mesto */
+}
+
+/* Aktivacija animacije kada korisnik pređe mišem preko sekcije "O nama" */
+.about-container:hover .about-image img,
+.about-container:hover .about-text p {
+    opacity: 1; /* Elementi postaju vidljivi */
+    transform: translateY(0); /* Elementi dolaze na svoje mesto */
+}
+
+/* Dodavanje kašnjenja za svaki paragraf */
+.about-text p:nth-child(1) {
+    transition-delay: 0.2s; /* Kašnjenje za prvi paragraf */
+}
+
+.about-text p:nth-child(2) {
+    transition-delay: 0.4s; /* Kašnjenje za drugi paragraf */
+}
+
+.about-text p:nth-child(3) {
+    transition-delay: 0.6s; /* Kašnjenje za treći paragraf */
+}
+
+/* Stilovi za manje ekrane (mobilni uređaji) */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* Prikazuje sliku i tekst jedan ispod drugog */
+        text-align: center; /* Centriranje sadržaja */
+    }
+
+    .about-image,
+    .about-text {
+        max-width: 100%; /* Širina 100% za oba elementa */
+        padding: 10px; /* Smanjen padding za mobilne uređaje */
+    }
+
+    .about-text p {
+        font-size: 0.9rem; /* Smanjena veličina fonta za bolje uklapanje */
+        text-align: center; /* Centriranje teksta */
+    }
+}
+
+/* Stilovi za sekciju "Kontaktirajte nas" na većim ekranima (desktop) */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dve jednake kolone */
+    gap: 20px; /* Razmak između kolona */
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch; /* Sekcije će se rastegnuti na istu visinu */
+}
+
+.contact-info,
+.contact-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Raspoređuje sadržaj unutar sekcija */
+}
+
+/* Stilovi za manje ekrane (mobilni uređaji) */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr; /* Jedna kolona za manje ekrane */
+        gap: 20px; /* Razmak između sekcija */
+    }
+
+    .contact-info,
+    .contact-form {
+        max-width: 100%; /* Sekcije zauzimaju punu širinu */
+        padding: 15px; /* Smanjen padding za mobilne uređaje */
+    }
+
+    .contact-info .contact-item {
+        flex-direction: column; /* Kontakt stavke prikazane jedna ispod druge */
+        align-items: flex-start; /* Poravnanje stavki na levo */
+    }
+
+    .contact-info .contact-item i {
+        margin-bottom: 5px; /* Razmak ispod ikone */
+    }
+
+    .contact-form form input,
+    .contact-form form textarea {
+        font-size: 0.9rem; /* Smanjena veličina fonta za mobilne uređaje */
+    }
+
+    .contact-form form button {
+        font-size: 1rem; /* Smanjena veličina dugmeta */
+    }
+}
+
+/* Animacija za iskakanje odozdo */
+@keyframes slideUp {
+    from {
+        transform: translateY(100px); /* Početna pozicija ispod */
+        opacity: 0; /* Nevidljivo */
+    }
+    to {
+        transform: translateY(0); /* Krajnja pozicija */
+        opacity: 1; /* Vidljivo */
+    }
+}
+
+/* Primena animacije na hero sadržaj */
+.hero-content h1,
+.hero-content p,
+.hero-content .btn-vise {
+    opacity: 0; /* Početno nevidljivo */
+    animation: slideUp 1s ease-out forwards; /* Animacija */
+}
+
+/* Različiti tajming za svaki element */
+.hero-content h1 {
+    animation-delay: 0.2s; /* Kašnjenje za naslov */
+}
+
+.hero-content p {
+    animation-delay: 0.4s; /* Kašnjenje za paragraf */
+}
+
+.hero-content .btn-vise {
+    animation-delay: 0.6s; /* Kašnjenje za dugme */
+}
+
+/* Animacija za sliku u sekciji "O nama" */
+@keyframes beautifulFadeIn {
+    0% {
+        transform: translateX(-100px); /* Početno stanje: smanjeno i pomereno nadole */
+        opacity: 0; /* Nevidljivo */
+    }
+    100% {
+        transform: translateX(0); /* Normalna veličina i pozicija */
+        opacity: 1; /* Potpuno vidljivo */
+    }
+}
+
+/* Početno stanje za sliku */
+.about-image img {
+    opacity: 0; /* Početno nevidljivo */
+    transform: translateX(-100px); /* Početno stanje: smanjeno i pomereno nadole */
+    transition: all 1s ease-out;
+}
+.about-image img.show {
+    animation: slideInFromLeft 1s ease-out forwards; /* Aktivira animaciju */
+}
+
+/* Animacija za pojavljivanje slike sa leve strane */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100px); /* Početno stanje: pomeranje ulevo */
+        opacity: 0; /* Element je nevidljiv */
+    }
+    100% {
+        transform: translateX(0); /* Element dolazi na svoje mesto */
+        opacity: 1; /* Element postaje vidljiv */
+    }
+}
+
+/* Animacija za pojavljivanje teksta sa desne strane */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100px); /* Početno stanje: pomeranje udesno */
+        opacity: 0; /* Element je nevidljiv */
+    }
+    100% {
+        transform: translateX(0); /* Element dolazi na svoje mesto */
+        opacity: 1; /* Element postaje vidljiv */
+    }
+}
+
+/* Početno stanje za sliku */
+.about-image img {
+    opacity: 0; /* Početno nevidljivo */
+    transform: translateX(-100px); /* Početno stanje: pomeranje ulevo */
+    animation: slideInFromLeft 1s ease-out forwards; /* Aktivira animaciju */
+    animation-delay: 0.3s; /* Kašnjenje za glatki efekat */
+}
+
+/* Početno stanje za tekst */
+.about-text {
+    opacity: 0; /* Početno nevidljivo */
+    transform: translateX(100px); /* Početno stanje: pomeranje udesno */
+    animation: slideInFromRight 1s ease-out forwards; /* Aktivira animaciju */
+    animation-delay: 0.5s; /* Kašnjenje za glatki efekat */
+}
+
+/* Animacija za pojavljivanje teksta */
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(50px); /* Početno stanje: pomeranje nadole */
+        opacity: 0; /* Element je nevidljiv */
+    }
+    100% {
+        transform: translateY(0); /* Element dolazi na svoje mesto */
+        opacity: 1; /* Element postaje vidljiv */
+    }
+}
+
+/* Početno stanje za tekst */
+.about-text p {
+    opacity: 0; /* Početno nevidljivo */
+    transform: translateY(50px); /* Početno stanje: pomeranje nadole */
+    animation: fadeInUp 1s ease-out forwards; /* Aktivira animaciju */
+}
+
+/* Dodavanje kašnjenja za svaki paragraf */
+.about-text p:nth-child(1) {
+    animation-delay: 0.2s; /* Kašnjenje za prvi paragraf */
+}
+
+.about-text p:nth-child(2) {
+    animation-delay: 0.4s; /* Kašnjenje za drugi paragraf */
+}
+
+.about-text p:nth-child(3) {
+    animation-delay: 0.6s; /* Kašnjenje za treći paragraf */
+}
+
+/* Smanjujemo razmak specifično za sekcije "O nama" i "Kontakt" */
+#onama h2, #contact h2 {
+    margin-bottom: 10px;
+}
+
+#onama, #contact {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#onama h2, #contact h2 {
+    margin-bottom: 10px; /* Razmak ispod naslova */
+}
+
+#onama, #contact {
+    padding-top: 20px; /* Razmak iznad sekcije */
+    padding-bottom: 50px; /* Razmak ispod sekcije */
+}
+
+/* Primena istog razmaka na naslov "Naši sadržaji" */
+#rooms h2 {
+    margin-bottom: 50px; /* Razmak ispod naslova */
+}
+
+#rooms {
+    padding-top: 100px; /* Razmak iznad sekcije */
+    padding-bottom: 20px; /* Razmak ispod sekcije */
+}
+/* Stil za dodatni tekst ispod slike */
+.about-extra-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    padding: 0 20px;
+}
+
+/* Stil za dodatnu sliku ispod teksta */
+.about-extra-image {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.about-extra-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* Stil za sekciju "O nama" */
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.about-image {
+    flex: 1 1 45%;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    flex: 1 1 45%;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Osiguravamo da header ima ispravnu poziciju na login i register stranicama */
+body.login-page header.header,
+body.register-page header.header {
+    position: fixed; /* Fiksira header na vrhu */
+    top: 0; /* Postavlja header na vrh */
+    left: 0; /* Poravnava header sa leve strane */
+    width: 100%; /* Header zauzima punu širinu */
+    z-index: 1000; /* Osigurava da je header iznad ostalih elemenata */
+    background: linear-gradient(90deg, #1e3c72, #2a5298); /* Pozadina header-a */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Blaga senka */
+}
+
+/* Dodajemo razmak ispod header-a kako sadržaj ne bi bio preklopljen */
+body.login-page,
+body.register-page {
+    padding-top: 80px; /* Visina header-a */
+}
+
+@media (max-width: 768px) {
+    .amenity-card.rooms h3 {
+        margin-bottom: 10px; /* Dodaje razmak ispod naslova */
+    }
+
+    .amenity-card.rooms p {
+        line-height: 1.8; /* Povećava razmak između linija teksta */
+        margin-top: 5px; /* Dodaje razmak između teksta i naslova */
+    }
+}
+
+/* Stilovi za sekciju rezervacije sa tri odvojene forme */
+.reservation-section {
+    padding: 40px 0;
+    background: #f8f9fa;
+}
+.reservation-forms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.reservation-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    padding: 32px 28px 24px 28px;
+    width: 340px;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.reservation-card h3 {
+    margin-bottom: 10px;
+    color: #2a5298;
+    font-size: 1.4rem;
+}
+.reservation-card .room-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.reservation-card .free-rooms-info {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+.reservation-card .free-rooms-info i {
+    color: #2a5298;
+    margin-right: 6px;
+}
+.reservation-card label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+    color: #2C3E50;
+    text-align: left;
+}
+.reservation-card input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+.reservation-card .btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px 0;
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.reservation-card .btn:hover {
+    background: #f39c12;
+    color: #fff;
+}
+.reservation-card .reservation-message {
+    margin-top: 10px;
+    min-height: 22px;
+    font-size: 1rem;
+    color: #2a5298;
+    text-align: center;
+}
+@media (max-width: 1100px) {
+    .reservation-forms {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* Rezervacija - moderna forma */
+.container {
+    background: rgba(255,255,255,0.94);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(42,82,152,0.13);
+    max-width: 480px;
+    margin: 120px auto 40px auto;
+    padding: 38px 32px 32px 32px;
+    position: relative;
+}
+h1 {
+    text-align: center;
+    color: #2a5298;
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+}
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #2a5298;
+}
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid #bfc9d9;
+    font-size: 1rem;
+    background: #f7fafd;
+    margin-bottom: 2px;
+    transition: border 0.2s;
+}
+input:focus, select:focus {
+    border: 1.5px solid #2a5298;
+    outline: none;
+}
+.btn {
+    width: 100%;
+    margin-top: 26px;
+    padding: 13px 0;
+    background: linear-gradient(90deg,#1e3c72,#2a5298);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(42,82,152,0.08);
+}
+.btn:hover {
+    background: #f39c12;
+    color: #fff;
+}
+.room-cards {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+.room-card {
+    background: #f7fafd;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(42,82,152,0.10);
+    padding: 22px 18px;
+    min-width: 120px;
+    max-width: 140px;
+    min-height: 140px;
+    text-align: center;
+    transition: transform 0.25s, box-shadow 0.25s, border 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+.room-card.selected, .room-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 32px rgba(42,82,152,0.18);
+    border: 2px solid #2a5298;
+    background: #fff;
+}
+.room-card h3 {
+    margin: 10px 0 8px 0;
+    color: #2a5298;
+    font-size: 1.1rem;
+}
+.room-card .fa-bed {
+    font-size: 2rem;
+    color: #2a5298;
+    margin-bottom: 10px;
+}
+.success-message {
+    color: #2a5298;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+@media (max-width: 600px) {
+    .container { padding: 10px; margin: 80px 5px 20px 5px; }
+    .room-cards { flex-direction: column; align-items: center; }
+    .room-card { max-width: 100%; }
+}
+body.rezervacija-bg {
+    background: url('/Slika1.jpeg') center 10%/cover no-repeat;
+}
+.rezervacija-center {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-items: center;
+}
+.container rezervacija-center {
+    align-items: center;
+    margin: 200px;
+}
+
+.restaurant-row {
+    display: flex;
+    align-items: center;   /* centrirano po vertikali */
+    gap: 32px;             /* veći razmak između teksta i dugmeta */
+    margin-top: 10px;
+}
+.btn-reserves {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #2C3E50; /* Tamnoplava boja */
+    text-decoration: none;
+    border-radius: 5px; /* Zaobljeni uglovi */
+    transition: background-color 0.3s ease;
+    text-align: center;
+    width: 150px;
+}
+
+.btn-reserves:hover {
+    background-color: #1e3c72; /* Svetlija plava boja na hover */
+}
+.btn-reserves {
+    margin-left: 111px;     /* dodatni razmak desno */
+}
+
+.bdrs {
+    overflow: hidden;
+}
+
+.tables-row {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    margin-top: 30px;
+}
+.table-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f7fafd;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(42,82,152,0.10);
+    padding: 22px 28px;
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+}
+.table-card input[type="radio"] {
+    display: none;
+}
+.table-card .table-icon {
+    font-size: 2.2rem;
+    color: #2a5298;
+    margin-bottom: 10px;
+}
+.table-card .table-name {
+    margin-top: 4px;
+    color: #2a5298;
+    font-weight: bold;
+}
+.table-card:has(input[type="radio"]:checked),
+.table-card:hover {
+    border: 2px solid #2a5298;
+    background: #fff;
+    transform: scale(1.07);
+}
+/* ...ostali tvoji stilovi... */
+
+/* Pravilno za rezervacijasto.html */
+body.bdrss {
+    background: url('/Slika1.jpeg') center 10%/cover no-repeat;
+    color: #333;
+}
+
+/* Centriranje kontejnera za rezervaciju stola */
+.rezervacija-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-items: center;
+}
+
+/* Stilovi za red sa stolovima */
+.table-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f7fafd;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(42,82,152,0.10);
+    padding: 22px 28px;
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+}
+.table-card input[type="radio"] {
+    display: none;
+}
+.table-card .table-icon {
+    font-size: 2.2rem;
+    color: #2a5298;
+    margin-bottom: 10px;
+}
+.table-card .table-name {
+    margin-top: 4px;
+    color: #2a5298;
+    font-weight: bold;
+}
+.table-card:has(input[type="radio"]:checked),
+.table-card:hover {
+    border: 2px solid #2a5298;
+    background: #fff;
+    transform: scale(1.07);
+}
+
+/* Poruka o uspehu */
+.success-message {
+    color: #2a5298;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+/* Responsive za stolove */
+@media (max-width: 600px) {
+
+    .table-card { max-width: 100%; }
+}
+.bdrss {
+    overflow: auto;
+}
+body.bdrss .container {
+    margin-top: 35px !important;   /* smanji sa 120px na 40px */
+    padding-top: 0px !important;  /* smanji gornji padding */
+}
+
+.wide-container {
+    max-width: none;
+    width: fit-content;
+    min-width: 0;
+    margin: 20px auto 0 auto;
+    background: rgba(255,255,255,0.94);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(42,82,152,0.13);
+    padding: 24px 32px 32px 32px;
+    margin-bottom: 20px;
+
+}
+
+.tables-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 28px;
+    justify-items: center;
+    margin-top: 30px;
+}
+
+@media (max-width: 1100px) {
+    .tables-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 700px) {
+    .tables-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 500px) {
+    .tables-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.reservation-details label {
+    font-weight: bold;
+    color: #2a5298;
+}
+.reservation-details input[type="date"],
+.reservation-details input[type="time"] {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+    font-size: 1rem;
+    margin-top: 4px;
+}
+.wide-container h1 {
+    margin-top: 30px;
+}
+
+
+
+.rezervacija-stola-bg {
+  background-image: url('/Slika1.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+.login-bg {
+  background-image: url('/Slika1.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+.login-bg {
+  background-image: url('/Slika1.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.restaurant-section {
+  flex: 1;
+}
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.restaurant-section {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 5%;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+.restaurant-image img,
+.wellness-img {
+  width: 725px;
+  height: 500px;
+  border-radius: 1px;
+  object-fit: cover;
+}
+
+.restaurant-content {
+  max-width: 600px;
+}
+
+.footer {
+  margin-top: auto;
+}
+    
+.gym-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.gym-main {
+  flex: 1;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.rezervacija-wrapper {
+  text-align: center;
+  padding: 20px;
+}
+
+.sobe-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.soba-kartica {
+  background: #f4f4f4;
+  padding: 20px;
+  width: 200px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.soba-kartica:hover {
+  background: #e8e8e8;
+}
+
+.selektovana {
+  border: 2px solid #2b72ff;
+}
+
+.rezervisi-dugme {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #2b72ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-container {
+  max-width: 900px; /* povećana širina */
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  min-height: auto; /* smanjena visina */
+}
+
+.room-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.room-card {
+  flex: 1;
+  min-width: 200px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: auto; /* smanji ako treba dodatno */
+}
+
+.room-card.selected {
+  border: 2px solid #4a90e2;
+  background-color: #eef5ff;
+}
+
+.user-dropdown {
+  position: relative;
+}
+
+.user-icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 8px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-panel {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background-color: white;
+  color: #000;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 220px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: left; /* ✅ centriranje po širini */
+  text-align: left;  /* ✅ tekst centriran */
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+
+.dropdown-line {
+  padding: 10px 16px;
+  font-size: 14px;
+  text-align: left;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #333;
+  background: none;
+  border: none;
+  width: 100%;
+  display: block;
+}
+
+/* .dropdown-line:hover {
+  background-color: #f5f5f5;
+  color: #000; /* Dodaj ako je hover boja teksta drugačija 
+} */
+
+
+
+.logout-button {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.admin-dropdown {
+  position: relative;
+}
+
+.admin-dropdown-panel {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background-color: white;
+  color: #000;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 200px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.dropdown-line {
+  padding: 10px 16px;
+  font-size: 14px;
+  text-align: left;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #000 !important;  /* Forsiramo crnu boju teksta */
+  background-color: transparent !important;
+  transition: background 0.2s;
+}
+
+
+.dropdown-line:hover {
+  background-color: #f5f5f5;
+  color: #000; /* Dodaj ako je hover boja teksta drugačija */
+}
+
+.dropdown-line,
+.dropdown-line:hover,
+.dropdown-line:focus,
+.dropdown-line:active {
+  background-color: transparent !important;
+  color: #000 !important;
+  text-decoration: none !important;
+  cursor: default !important;
+}
+
+a.dropdown-line {
+  color: #000 !important;
+  background-color: transparent !important;
+  text-decoration: none !important;
+  cursor: default !important;
+}
+
+.admin-dropdown .dropdown-menu .dropdown-item,
+.admin-dropdown .dropdown-menu .dropdown-item:hover,
+.admin-dropdown .dropdown-menu .dropdown-item:focus,
+.admin-dropdown .dropdown-menu .dropdown-item:active {
+  background-color: transparent !important;
+  color: #000 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+
+:root{
+  --accent:#3b82f6;           /* boja okvira na hover */
+  --radius:16px;              /* zaobljenje kartice */
+}
+
+/* Layout sekcije */
+.novosti-section{
+  padding:32px 24px;
+  max-width:1280px;           /* dovoljno široko za 3 lepe kolone */
+  margin:0 auto;
+  background:#f7fafc00;       /* po želji */
+}
+.novosti-title{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+/* Grid: 3 kolone na desktopu */
+.novosti-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:28px;
+  align-items:stretch;
+}
+
+/* Responsivno: 2 kolone na tablet, 1 na mobilnom */
+@media (max-width:1024px){
+  .novosti-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width:640px){
+  .novosti-grid{ grid-template-columns:1fr; }
+}
+
+/* Kartica */
+.novost-link{
+  text-decoration:none;
+  color:inherit;
+  display:block;
+  height:100%;
+}
+
+.novost-kartica{
+  position:relative;
+  border:1px solid #e5e7eb;
+  border-radius:var(--radius);
+  background:#fff;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  display:flex;
+  flex-direction:column;
+
+  /* animacije */
+  transform:translateY(0) scale(1);
+  transition:transform 180ms ease, box-shadow 180ms ease;
+  will-change:transform;
+}
+
+/* unutrašnji “ring” okvir koji se pojavi na hover */
+.novost-kartica::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:var(--radius);
+  border:2px solid var(--accent);
+  opacity:0;
+  transform:scale(.985);
+  transition:opacity 180ms ease, transform 180ms ease;
+  pointer-events:none;
+}
+
+/* hover/fokus: malo veća + jača senka + okvir */
+.novost-kartica:hover,
+.novost-kartica:focus-within{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 14px 30px rgba(0,0,0,.14);
+}
+.novost-kartica:hover::after,
+.novost-kartica:focus-within::after{
+  opacity:1;
+  transform:scale(1);
+}
+
+/* Slika veća i ujednačena visina */
+.novost-slika{
+  width:100%;
+  aspect-ratio:16/10;          /* moderniji način za konzistentan odnos */
+  object-fit:cover;
+}
+@supports not (aspect-ratio: 1){
+  .novost-slika{ height:220px; } /* fallback ako nema aspect-ratio */
+}
+
+/* Telo kartice */
+.novost-body{
+  padding:18px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  flex:1;
+  min-height:150px;            /* da kartice deluju ujednačeno */
+}
+
+.novost-title{
+  margin:0;
+  font-size:clamp(18px, 1vw + 14px, 22px);
+  font-weight:700;
+  letter-spacing:.2px;
+  color:#1f2937;
+}
+
+.novost-excerpt{
+  margin:0;
+  color:#4b5563;
+  line-height:1.5;
+  display:-webkit-box;
+      /* lepo skraćivanje na 2 reda */
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* manja animacija za korisnike koji ne vole pokrete */
+@media (prefers-reduced-motion: reduce){
+  .novost-kartica,
+  .novost-kartica::after{ transition:none; }
+}
+
+
+
+
+
+
+/* ===== Hero layout za detalj novosti (kao "Teretana") ===== */
+.novost-hero{
+  padding: 48px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.novost-hero-grid{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;   /* slika levo šira */
+  gap: 48px;
+  align-items: center;                 /* vertikalno centrirano kao na primer slici */
+}
+
+.novost-hero-media img{
+  width: 100%;
+  height: auto;
+  max-height: 640px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+
+.novost-hero-content{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.novost-hero-title{
+  margin: 0 0 8px 0;
+  text-align: center;                  /* kao na slici – centriran naslov u desnoj koloni */
+  font-weight: 800;
+  letter-spacing: .3px;
+  color: #213c63;                      /* po uzoru na header ton */
+  font-size: clamp(28px, 2.2vw + 18px, 54px);
+  line-height: 1.15;
+  word-break: break-word;
+}
+
+.novost-hero-text p{
+  margin: 0 0 12px 0;
+  color: #374151;
+  line-height: 1.7;
+  font-size: 1.06rem;
+}
+
+.novost-hero-cta{
+  margin-top: 6px;
+}
+
+.btn{
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: var(--accent, #3b82f6);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 8px 18px rgba(59,130,246,.25);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+.btn:hover,
+.btn:focus-visible{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(59,130,246,.35);
+  background: #3276ee;
+}
+.btn:active{ transform: translateY(0); }
+
+/* Responsive: jedan ispod drugog na užim širinama */
+@media (max-width: 1000px){
+  .novost-hero-grid{
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .novost-hero-title{
+    text-align: left;
+  }
+}
+
+
+
+/* Šira sekcija kao na "Teretana" */
+.novost-hero{
+  padding: 56px 32px;
+  max-width: 1400px;            /* poveća centralnu širinu */
+  margin: 0 auto;
+}
+
+/* Šira leva kolona + iste visine kolone */
+.novost-hero-grid{
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;  /* slika znatno šira */
+  gap: 64px;
+  align-items: stretch;               /* iste visine kao slika */
+}
+
+/* Leva kolona – centriraj sadržaj u okviru */
+.novost-hero-media{
+  height: 100%;                 /* već je ista visina kao desna kolona */
+  display: flex;                /* centriranje slike */
+  align-items: center;
+  justify-content: center;
+  background: #fff;             /* “letterbox” pozadina oko slike */
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.14);
+}
+
+/* Slika: prikaži cijelu (bez kropanja) */
+.novost-hero-media img{
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;          /* KLJUČNO: stane cijela slika */
+  display: block;
+}
+
+
+/* Desna kolona – dugme skroz dole */
+.novost-hero-content{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+/* PODIGNI DUGME GORE */
+.novost-hero-cta{
+  margin-top: 16px !important;  /* stavi 8–24px po ukusu */
+  align-self: flex-start;        /* (opciono) poravnaj lijevo */
+}
+
+
+/* Naslov i tekst (po želji podebljaj/uvećaj) */
+.novost-hero-title{
+  margin: 0 0 8px 0;
+  text-align: center;
+  font-weight: 800;
+  color: #213c63;
+  font-size: clamp(32px, 2.6vw + 18px, 56px);
+  line-height: 1.12;
+}
+.novost-hero-text p{
+  margin: 0 0 12px 0;
+  color: #374151;
+  line-height: 1.7;
+  font-size: 1.06rem;
+}
+
+/* Responsivno */
+@media (max-width: 1200px){
+  .novost-hero-grid{ grid-template-columns: 1.5fr 1fr; gap: 40px; }
+  .novost-hero-media{ height: 74vh; min-height: 520px; }
+}
+@media (max-width: 1000px){
+  .novost-hero-grid{
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .novost-hero-media{
+    height: auto;
+    min-height: 0;
+  }
+  .novost-hero-title{ text-align: left; }
+}
+
+
+.novost-title{ text-align:center; }
+
+
+/* Naslov vertikalno u sredini donjeg dela kartice */
+.novost-body{
+  padding: 12px 16px;
+  min-height: 120px;         /* po želji 90–140px */
+  display: flex;
+  align-items: center;       /* vertikalno centriranje */
+  justify-content: center;   /* horizontalno centriranje */
+}
+.novost-title{
+  margin: 0;
+  text-align: center;
+}
+
+
+/* Veći naslov "Novosti" (responsivno) */
+.novosti-title{
+  font-size: clamp(32px, 3.2vw + 8px, 56px);
+  font-weight: 800;
+  letter-spacing: .3px;
+  margin-bottom: 32px; /* po želji */
+}
+
+
+
+
+
+:root{
+  --nav-h: 72px;      /* stvarna visina tvog navbar-a */
+  --footer-h: 64px;   /* stvarna visina footera (ako je fiksiran) */
+}
+
+/* Sekcija stranice – 100% visine ekrana minus header/footer */
+.rez-sto-section{
+  min-height: calc(100vh - var(--nav-h) - var(--footer-h));
+  display: grid;
+  place-items: center;       /* savršeno centriranje i vertikalno i horizontalno */
+  padding: 16px;
+}
+
+/* Tvoja kartica (ako već imaš stil, ostavi – ovo je samo primjer) */
+.rez-sto-card{
+  width: min(820px, 92vw);
+  background: rgba(255,255,255,0.85);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.15);
+  padding: 24px;
+}
+
+
+
+
+
+
+
+:root{
+  --nav-h:72px;         /* izmeri stvarnu visinu headera */
+  --footer-h:64px;      /* ako footer NIJE fixed, stavi 0 */
+  --accent:#3b82f6;
+  --radius:18px;
+}
+
+/* Sekcija: centriraj i ostavi mesta za footer */
+.rez-sto-center{
+  min-height: calc(100dvh - var(--nav-h));
+  display: grid;
+  place-items: center;
+  padding: 24px 16px calc(var(--footer-h) + 24px); /* da footer bude vidljiv */
+}
+
+/* Kartica – lepši glassmorphism */
+.rez-sto-card{
+  width: min(880px, 92vw);
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.86));
+  border: 1px solid rgba(255,255,255,.6);
+  box-shadow: 0 20px 50px rgba(0,0,0,.18);
+  backdrop-filter: blur(10px) saturate(120%);
+}
+
+/* Naslov */
+.rez-sto-title{
+  text-align: center;
+  margin: 0 0 16px 0;
+  font-size: clamp(24px, 2.2vw + 12px, 36px);
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: #213c63;
+}
+
+/* Forma (korak 1) */
+.rez-sto-form{
+  display: grid;
+  grid-template-columns: 160px 1fr;   /* labela levo, input desno */
+  gap: 12px 16px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.rez-sto-form label{ color:#344054; font-weight:600; }
+
+.rez-sto-form input[type="date"],
+.rez-sto-form input[type="time"]{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.04);
+  transition: border .15s, box-shadow .15s;
+}
+.rez-sto-form input:focus{
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(59,130,246,.16);
+}
+
+/* Stolovi (korak 2) */
+.tables-row{
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.table-card{
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 18px; border-radius: 14px;
+  border: 2px solid transparent;
+  background: #f7f9ff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  cursor: pointer; user-select: none;
+  transition: border-color .16s, box-shadow .16s, transform .16s, background .16s;
+}
+.table-card:hover, .table-card:focus-visible{
+  border-color: var(--accent);
+  box-shadow: 0 10px 22px rgba(59,130,246,.25);
+  transform: translateY(-1px);
+}
+/* aktivni radio + label = okvir OSTANE */
+.table-card-wrapper input:checked + .table-card{
+  border-color: var(--accent) !important;
+  box-shadow: 0 10px 22px rgba(59,130,246,.25) !important;
+  background: #eef4ff;
+}
+.table-card-wrapper.unavailable .table-card{
+  opacity:.5; cursor:not-allowed;
+}
+
+/* Dugmad */
+.btn-primary{
+  display:inline-block; width:100%;
+  padding: 12px 16px; border-radius: 12px; border: none;
+  background: var(--accent); color:#fff; font-weight:700;
+  box-shadow: 0 8px 18px rgba(59,130,246,.25);
+  transition: transform .16s, box-shadow .16s, background .16s;
+}
+.btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(59,130,246,.35); }
+
+/* Responsive – jedna kolona za formu */
+@media (max-width: 640px){
+  .rez-sto-form{ grid-template-columns: 1fr; }
+}
+
+
+
+
+
+/* 5 po redu (desktop) */
+.tables-row{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(140px, 1fr)); /* 5 kolona */
+  gap: 12px 16px;
+  justify-items: stretch;   /* kartica ispuni kolonu */
+}
+
+/* neka kartica popuni ćeliju lepo */
+.table-card{
+  width: 100%;
+  justify-content: center;   /* centriraj sadržaj u labeli */
+}
+
+/* Responsive (po želji) */
+@media (max-width: 1100px){ .tables-row{ grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 900px){  .tables-row{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px){  .tables-row{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px){  .tables-row{ grid-template-columns: 1fr; } }
+
+
+
+
+
+
+
+
+
+/* Raspored dvije kolone (lijevi blok + Kontakt desno) */
+.kontakt-sekcija{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;   /* lijevi širi, desni malo uži */
+  gap: 24px;
+  align-items: stretch;               /* iste visine kartica */
+}
+
+/* Desna kartica – popuni cijeli desni kontejner */
+.kontakt-card{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+  padding: 0;                         /* bez globalnog paddinga */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Unutrašnji layout: naslov preko cijele širine, ispod mreža 2 kolone */
+.kontakt-box{
+  width: 100%;
+  font-style: normal;                 /* address zna da povuče italic */
+  display: grid;
+  grid-template-columns: 180px 1fr;   /* oznaka | vrijednost */
+  column-gap: 16px;
+  row-gap: 14px;
+  padding: 0 20px 18px;
+}
+
+/* Naslov kao header traka */
+.kontakt-naslov{
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 16px 20px;
+  text-align: center;
+  font-weight: 800;
+  color: #213c63;
+  border-bottom: 1px dashed #e5e7eb;
+  margin-bottom: 8px;
+}
+
+/* Pojedinačni red */
+.kontakt-red{
+  display: contents;                  /* koristi grid roditelja (2 kolone) */
+}
+.kontakt-oznaka{
+  color:#6b7280;
+  font-weight:600;
+  align-self: center;
+}
+.kontakt-link{
+  color:#111827;
+  font-weight:600;
+  text-decoration:none;
+  align-self: center;
+}
+.kontakt-link:hover,
+.kontakt-link:focus-visible{
+  color:#3b82f6;
+  text-decoration:underline;
+}
+
+/* Responsivno: na uskim ekranima jedna kolona */
+@media (max-width: 900px){
+  .kontakt-sekcija{ grid-template-columns: 1fr; }
+  .kontakt-box{ grid-template-columns: 1fr; }
+  .kontakt-oznaka{ margin-top: 8px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
